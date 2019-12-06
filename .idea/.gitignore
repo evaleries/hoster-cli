@@ -1,0 +1,5 @@
+# Default ignored files
+/workspace.xml
+
+src/hoster/cli/Barang.java
+src/hoster/cli/Inventaris.java
