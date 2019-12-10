@@ -103,6 +103,7 @@ public class Main {
         reservasi.setLamaInap(3);
         reservasi.setTanggalCheckOut(LocalDate.now().minusDays(2).toString());
         reservasi.setTotalPembayaran(1200000);
+        yogi.setBookingKamar(dex2);
         database.addReservasi(reservasi);
 
         Reservasi reservasi2 = new Reservasi();
@@ -112,7 +113,7 @@ public class Main {
         reservasi2.setTotalPembayaran(1500000);
         database.addReservasi(reservasi2);
 
-        new App(database, true);
+        new App(database, false);
     }
 
 }

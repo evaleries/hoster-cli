@@ -1,11 +1,5 @@
 package hoster.cli;
 
-import java.math.BigInteger;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -73,6 +67,7 @@ public class App {
         Karyawan karyawan = new Karyawan();
         karyawan.setNamaDepan(strInput.get("Nama Depan  : "));
         karyawan.setNamaBelakang(strInput.get("Nama Belakang    : "));
+        karyawan.setNoKTP(strInput.get("No KTP: "));
         karyawan.setNoTelepon(strInput.get("No Telepon : "));
         karyawan.setEmail(strInput.get("Email : "));
         karyawan.setAlamat(strInput.get("Alamat : "));
@@ -85,7 +80,7 @@ public class App {
     }
 
     private void tambahKamar() {
-        System.out.println("===============[TAMBAH CUSTOMER]===============");
+        System.out.println("===============[TAMBAH KAMAR]===============");
         System.out.println("Tipe Kamar: ");
         System.out.println("1. Single");
         System.out.println("2. Double");

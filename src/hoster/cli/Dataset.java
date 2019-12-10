@@ -17,7 +17,6 @@ public class Dataset implements DataSetInterface {
     private List<Kamar> listKamarKosong = new ArrayList<Kamar>();
     private List<Kamar> listKamarTerpakai = new ArrayList<Kamar>();
     private List<Reservasi> listReservasi = new ArrayList<Reservasi>();
-    private List<Inventaris> listInventaris = new ArrayList<Inventaris>();
     private HashMap<String, String> accounts = new HashMap<String, String>();
 
     public HashMap<String, String> getAccounts() {
@@ -125,14 +124,6 @@ public class Dataset implements DataSetInterface {
      */
     public void removeReservasi(int indexReservasi) {
         this.listReservasi.remove(indexReservasi);
-    }
-
-    public List<Inventaris> getListInventaris() {
-        return listInventaris;
-    }
-
-    public void setListInventaris(List<Inventaris> listInventaris) {
-        this.listInventaris = listInventaris;
     }
 
     public List<Kamar> getListKamarKosong() {
