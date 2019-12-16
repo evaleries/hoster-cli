@@ -239,7 +239,7 @@ public class App {
             System.out.println(c.toString());
             System.out.println("======================");
         }
-        if (database.getListReservasi().isEmpty()) {
+        if (database.getListCustomer().isEmpty()) {
             System.out.println("Data Customer Kosong");
         }
     }
@@ -250,7 +250,7 @@ public class App {
             System.out.println(k.toString());
             System.out.println("======================");
         }
-        if (database.getListReservasi().isEmpty()) {
+        if (database.getListKaryawan().isEmpty()) {
             System.out.println("Data Karyawan Kosong");
         }
     }
