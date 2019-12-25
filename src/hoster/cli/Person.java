@@ -86,7 +86,7 @@ public class Person {
     }
 
     public void setJenisKelamin(String jenisKelamin) {
-        if (! jenisKelamin.isEmpty() || ! jenisKelamin.isBlank() || jenisKelamin.length() > 1) {
+        if (!jenisKelamin.isEmpty() || !jenisKelamin.isBlank()) {
             this.jenisKelamin = jenisKelamin.substring(0, 1);
         } else {
             this.jenisKelamin = jenisKelamin;

@@ -2,8 +2,10 @@ package hoster.cli;
 
 public class KamarSingle extends Kamar {
 
-    public KamarSingle() {
+    public KamarSingle(String kode, int harga) {
         super("Single");
+        this.setKode(kode);
+        setHarga(harga);
     }
 
     @Override

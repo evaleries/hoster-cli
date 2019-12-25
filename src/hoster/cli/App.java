@@ -64,22 +64,24 @@ public class App {
 
     private void tambahKaryawan() {
         System.out.println("===============[TAMBAH KARYAWAN]===============");
-        Karyawan karyawan = new Karyawan();
-        karyawan.setNamaDepan(strInput.get("Nama Depan  : "));
-        karyawan.setNamaBelakang(strInput.get("Nama Belakang    : "));
-        karyawan.setNoKTP(strInput.get("No KTP: "));
-        karyawan.setNoTelepon(strInput.get("No Telepon : "));
-        karyawan.setEmail(strInput.get("Email : "));
-        karyawan.setAlamat(strInput.get("Alamat : "));
-        karyawan.setKota(strInput.get("Kota: "));
-        karyawan.setJenisKelamin(strInput.get("Jenis Kelamin    : "));
-        karyawan.setTanggalLahir(strInput.get("Tanggal Lahir  (Y-m-d)  : "));
-        karyawan.setTanggalRekrut(strInput.get("Tanggal Rekrut (Y-m-d) : "));
+        String namaDepan    = strInput.get("Nama Depan  : ");
+        String namaBelakang = strInput.get("Nama Belakang    : ");
+        String noKTP        = strInput.get("No KTP: ");
+        String noTelepon    = strInput.get("No Telepon : ");
+        String email        = strInput.get("Email : ");
+        String alamat       = strInput.get("Alamat : ");
+        String jenisKelamin = strInput.get("Jenis Kelamin    : ");
+        String kota         = strInput.get("Kota : ");
+        String tanggalLahir = strInput.get("Tanggal Lahir  (Y-m-d)  : ");
+        String tanggalRekrut= strInput.get("Tanggal Rekrut (Y-m-d) : ");
+        Karyawan karyawan = new Karyawan(namaDepan, namaBelakang, email, noKTP, noTelepon, jenisKelamin, alamat, kota, tanggalLahir, tanggalRekrut);
         database.addKaryawan(karyawan);
         System.out.println("Karyawan berhasil ditambahkan");
     }
 
     private void tambahKamar() {
+        String kode;
+        int harga;
         System.out.println("===============[TAMBAH KAMAR]===============");
         System.out.println("Tipe Kamar: ");
         System.out.println("1. Single");
@@ -88,21 +90,21 @@ public class App {
         System.out.println("10. Kembali");
         switch (intInput.getInt("Pilih Tipe: ")) {
             case 1:
-                KamarSingle kamarSingle = new KamarSingle();
-                kamarSingle.setKode(strInput.get("Kode Kamar Single: S-"));
-                kamarSingle.setHarga(intInput.getInt("Harga Per Malam: "));
+                kode    = strInput.get("Kode Kamar Single: S-");
+                harga   = intInput.getInt("Harga Per Malam: ");
+                KamarSingle kamarSingle = new KamarSingle(kode, harga);
                 database.addKamarSingle(kamarSingle);
                 break;
             case 2:
-                KamarDouble kamarDouble = new KamarDouble();
-                kamarDouble.setKode(strInput.get("Kode Kamar Double: D-"));
-                kamarDouble.setHarga(intInput.getInt("Harga Per Malam: "));
+                kode    = strInput.get("Kode Kamar Double: D-");
+                harga   = intInput.getInt("Harga Per Malam: ");
+                KamarDouble kamarDouble = new KamarDouble(kode, harga);
                 database.addKamarDouble(kamarDouble);
                 break;
             case 3:
-                KamarDeluxe kamarDeluxe = new KamarDeluxe();
-                kamarDeluxe.setKode(strInput.get("Kode Kamar Deluxe: DEX-"));
-                kamarDeluxe.setHarga(intInput.getInt("Harga Per Malam: "));
+                kode    = strInput.get("Kode Kamar Deluxe: Dex-");
+                harga   = intInput.getInt("Harga Per Malam: ");
+                KamarDeluxe kamarDeluxe = new KamarDeluxe(kode, harga);
                 database.addKamarDeluxe(kamarDeluxe);
                 break;
             case 10:
@@ -141,23 +143,21 @@ public class App {
         switch (intInput.getInt("Pilih : ")) {
             case 1:
                 System.out.println("===============[RESERVASI - CHECK IN]===============");
-                Reservasi reservasi = new Reservasi();
                 System.out.println("==[ Data Customer ] ==");
-                Customer customer = new Customer();
-                customer.setNamaDepan(strInput.get("Nama Depan  : "));
-                customer.setNamaBelakang(strInput.get("Nama Belakang    : "));
-                customer.setNoKTP(strInput.get("No KTP: "));
-                customer.setNoTelepon(strInput.get("No Telepon : "));
-                customer.setEmail(strInput.get("Email : "));
-                customer.setAlamat(strInput.get("Alamat : "));
-                customer.setKota(strInput.get("Kota: "));
-                customer.setJenisKelamin(strInput.get("Jenis Kelamin    : "));
-                customer.setTanggalLahir(strInput.get("Tanggal Lahir (Y-m-d)   : "));
+                String namaDepan    = strInput.get("Nama Depan  : ");
+                String namaBelakang = strInput.get("Nama Belakang    : ");
+                String noKTP        = strInput.get("No KTP: ");
+                String noTelepon    = strInput.get("No Telepon : ");
+                String email        = strInput.get("Email : ");
+                String alamat       = strInput.get("Alamat : ");
+                String kota         = strInput.get("Kota: ");
+                String jenisKelamin = strInput.get("Jenis Kelamin    : ");
+                String tanggalLahir = strInput.get("Tanggal Lahir (Y-m-d)   : ");
+                Customer customer = new Customer(namaDepan, namaBelakang, email, noKTP, noTelepon, jenisKelamin, alamat, kota, tanggalLahir);
                 database.addCustomer(customer);
-                reservasi.setCustomer(customer);
 
                 System.out.println("==[ Data Reservasi ] ==");
-                reservasi.setLamaInap(intInput.getInt("Lama Inap: "));
+                int lamaInap = intInput.getInt("Lama Inap: ");
                 System.out.println("Pilih Kamar dengan Opsi");
                 for (int i = 0; i < database.getListKamarKosong().toArray().length; i++) {
                     System.out.println("================\nOpsi -> ["+ i + "]");
@@ -165,14 +165,13 @@ public class App {
                 }
                 try {
                     Kamar kamarPilihan = database.getListKamarKosong().get(intInput.getInt("Opsi Kamar: "));
-                    reservasi.setKamar(kamarPilihan);
                     System.out.println("==[ Konfirmasi & Pembayaran ] ==");
-                    int totalBiaya = kamarPilihan.getHarga() * reservasi.getLamaInap();
+                    int totalBiaya = kamarPilihan.getHarga() * lamaInap;
                     System.out.println(kamarPilihan.toString());
-                    System.out.println("Lama Inap: " + reservasi.getLamaInap() + " malam");
+                    System.out.println("Lama Inap: " + lamaInap + " malam");
                     System.out.println("Total Biaya: Rp " + totalBiaya);
                     int biayaDibayar = intInput.getInt("Total Uang Terbayar: Rp ");
-                    reservasi.setTotalPembayaran(biayaDibayar);
+                    Reservasi reservasi = new Reservasi(customer, kamarPilihan, lamaInap, biayaDibayar);
                     database.addReservasi(reservasi);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println("Kamar tidak ditemukan!");

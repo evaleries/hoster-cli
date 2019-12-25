@@ -15,6 +15,15 @@ public class Reservasi {
     private String tanggalCheckIn;
     private String tanggalCheckOut;
 
+    public Reservasi(Customer customer, Kamar kamar, int lamaInap, int totalPembayaran) {
+        this.customer = customer;
+        this.kamar = kamar;
+        setLamaInap(lamaInap);
+        setTotalPembayaran(totalPembayaran);
+        this.setTanggalCheckIn(LocalDate.now().toString());
+        this.setTanggalCheckOut(LocalDate.now().plusDays(lamaInap).toString());
+    }
+
     public Customer getCustomer() {
         return customer;
     }
@@ -36,7 +45,7 @@ public class Reservasi {
     }
 
     public void setLamaInap(int lamaInap) {
-        if (lamaInap == 0) {
+        if (lamaInap <= 0) {
             this.lamaInap = 1;
         }
         this.tanggalCheckIn = LocalDate.now().toString();

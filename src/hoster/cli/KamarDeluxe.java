@@ -1,8 +1,11 @@
 package hoster.cli;
 
 public class KamarDeluxe extends Kamar {
-    public KamarDeluxe() {
+
+    public KamarDeluxe(String kode, int harga) {
         super("Deluxe");
+        this.setKode(kode);
+        setHarga(harga);
     }
 
     @Override
